@@ -1,6 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
+import morgan from 'morgan'
 import cors from 'cors'
 import * as dotenv from 'dotenv' 
 
@@ -13,6 +14,7 @@ dotenv.config()
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors())
+app.use(morgan('combined'))
 
 app.use('/post', postRoute)
 
